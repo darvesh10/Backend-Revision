@@ -1,0 +1,66 @@
+TTP Headers Quick Reference
+1. Common Request Headers
+Accept: text/html - Client's preferred content type
+
+Authorization: Bearer xyz - Authentication credentials
+
+Content-Type: application/json - Request body format
+
+Cookie: session=abc - Stored client cookies
+
+User-Agent: Mozilla/5.0 - Client software info
+
+2. Essential Response Headers
+Content-Type: text/html - Response format
+
+Set-Cookie: id=a3fWa - Sets client-side cookies
+
+Cache-Control: max-age=3600 - Caching rules
+
+Access-Control-Allow-Origin: * - CORS permissions
+
+Location: /new-path - Redirect target
+
+3. Security Headers (Critical)
+Strict-Transport-Security: max-age=31536000 - Enforces HTTPS
+
+X-Content-Type-Options: nosniff - Prevents MIME sniffing
+
+Content-Security-Policy: default-src 'self' - Mitigates XSS
+
+X-Frame-Options: DENY - Blocks clickjacking
+
+4. Custom Headers (Examples)
+X-Request-ID: 123e4567 - Request tracing
+
+X-RateLimit-Limit: 100 - API rate limiting
+
+X-Powered-By: PHP/8.1 - Server technology
+
+5. Framework-Specific Syntax
+Node.js/Express:
+
+javascript
+res.set('X-Custom', 'value').send();
+const token = req.headers.authorization;
+Python/Flask:
+
+python
+resp.headers['X-API-Version'] = '1.0'
+PHP:
+
+php
+header('Cache-Control: no-cache');
+6. Pro Tips
+Always set security headers first
+
+Use Vary: User-Agent for device-specific caching
+
+Avoid sensitive data in headers (use cookies/body instead)
+
+Test with curl -I https://example.com
+
+This condensed format is perfect for quick revision or a cheat sheet! 🚀
+
+New chat
+
